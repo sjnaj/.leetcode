@@ -17,7 +17,7 @@ public:
         sort(nums.begin(), nums.end());
         int sz = nums.size();
         int left, right;
-        for (int i = 0; i < sz; i++)
+        for (int i = 0; i < sz-2; i++)
         {
             if (nums[i] > 0)
                 break;

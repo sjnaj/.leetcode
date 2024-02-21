@@ -16,11 +16,27 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution {
+class Solution
+{
 public:
-    TreeNode* sortedArrayToBST(vector<int>& nums) {
-
+    TreeNode *build(TreeNode *root, vector<int> &nums, int start, int end)
+    {
+        if (start > end)
+        {
+            return nullptr;
+        }
+        int mid = (start + end) / 2;
+        if (!root)
+        {
+            root = new TreeNode(nums[mid]);
+        }
+        root->left = build(root->left, nums, start, mid - 1);
+        root->right = build(root->right, nums, mid + 1, end);
+        return root;
+    }
+    TreeNode *sortedArrayToBST(vector<int> &nums)
+    {
+        return build(nullptr, nums, 0, nums.size() - 1);
     }
 };
 // @lc code=end
-

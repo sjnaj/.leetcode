@@ -1,0 +1,1 @@
+    ListNode *detectCycle(ListNode *head)

@@ -16,11 +16,39 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution {
+class Solution
+{
 public:
-    TreeNode* searchBST(TreeNode* root, int val) {
-
+    // TreeNode *searchBST(TreeNode *root, int val)
+    // {
+    //     if (!root)
+    //     {
+    //         return nullptr;
+    //     }
+    //     if (root->val == val)
+    //     {
+    //         return root;
+    //     }
+    //     return val < root->val ? searchBST(root->left, val) : searchBST(root->right, val);
+    // }
+    TreeNode *searchBST(TreeNode *root, int val)
+    {
+        while (root)
+        {
+            if (val < root->val)
+            {
+                root = root->left;
+            }
+            else if (val > root->val)
+            {
+                root = root->right;
+            }
+            else
+            {
+                return root;
+            }
+        }
+        return nullptr;
     }
 };
 // @lc code=end
-

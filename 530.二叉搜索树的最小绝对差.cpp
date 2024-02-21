@@ -16,11 +16,29 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution {
+class Solution
+{
 public:
-    int getMinimumDifference(TreeNode* root) {
+    TreeNode *prev = nullptr;
+    int result = __INT_MAX__;
 
+    void helper(TreeNode *curr)
+    {
+        if (!curr)
+            return;
+        helper(curr->left);
+        if (prev&&curr->val - prev->val < result)
+        {
+            result = curr->val - prev->val;
+        }
+        prev = curr;
+        helper(curr->right);
+    }
+
+    int getMinimumDifference(TreeNode *root)
+    {
+        helper(root);
+        return result;
     }
 };
 // @lc code=end
-

@@ -36,7 +36,7 @@ public:
             s.pop();
             if (n)//探测到非空结点
             {
-                if (accessible)
+                if (accessible)//第二次出栈才能访问
                 {
                     res.push_back(n->val);
                 }
@@ -47,7 +47,6 @@ public:
                     s.push({n->left, false});
                 }
             }
-            
         }
         return res;
     }

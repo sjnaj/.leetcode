@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+class Solution
+{
+public:
+    vector<vector<int>> threeSum(vector<int> &nums)
+    {
+        std::vector<std::vector<int>> res;
+        std::sort(nums.begin(), nums.end());
+        for (int i = 0; i < nums.size() - 2; i++)
+        {
+            if (nums[i] > 0)
+            {
+                break;
+            }
+            if (i > 0 && nums[i - 1] == nums[i])
+            {
+                continue;
+            }
+            int left = i + 1, right = nums.size() - 1;
+            while (left < right)
+            {
+                int sum = nums[i] + nums[left] + nums[right];
+                if (sum < 0)
+                {
+                    left++;
+                }
+                else if (sum > 0)
+                {
+                    right--;
+                }
+                else
+                {
+                    std::vector<int> tup{nums[i], nums[left], nums[right]};
+                    while (left < right && nums[left] == tup[1])
+                    {
+                        left++;
+                    }
+                    while (left < right && nums[right] == tup[2])
+                    {
+                        right--;
+                    }
+                    res.push_back(std::move(tup));
+                }
+            }
+        }
+        return res;
+    }
+};

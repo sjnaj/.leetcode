@@ -22,7 +22,8 @@ public:
             map[num]++;
         }
         vector<int> res;
-        priority_queue<pair<int, int>> pq;
+        // priority_queue<pair<int, int>,vector<pair<int,int>>,greater<pair<int,int>>> pq;小根堆
+        priority_queue<pair<int,int>>pq;
         for (auto it = map.begin(); it != map.end(); it++)
         {
             pq.push({it->second, it->first});

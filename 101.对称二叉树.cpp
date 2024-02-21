@@ -33,11 +33,7 @@ public:
         {
             return true;
         }
-        else if (p == nullptr || q == nullptr)
-        {
-            return false;
-        }
-        else if (p->val != q->val)
+        else if (p == nullptr || q == nullptr||p->val != q->val)
         {
             return false;
         }

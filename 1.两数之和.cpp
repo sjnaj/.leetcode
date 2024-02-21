@@ -6,6 +6,7 @@
 
 // @lc code=start
 #include <bits/stdc++.h>
+
 class Solution {
 public:
     std::unordered_map<int,int> map;
@@ -16,7 +17,6 @@ public:
             if(map.find(s)!=map.end())
             return {map[s],i};
             map.insert({nums[i],i});
-            
         }
         return {};
         
